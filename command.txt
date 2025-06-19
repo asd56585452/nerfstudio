@@ -1,0 +1,121 @@
+conda activate nerfstudio
+cd nerfstudio
+pip install --upgrade pip setuptools
+pip install -e .
+ns-train splatfacto --help
+ns-train splatfacto --data /media/cgvmis418/新增磁碟區/2025-04-23_08-55-45/RUN_HiFi4G_location_9_30_T_PCD/nerfstudio_data/0 --pipeline.model.sh-degree 0 --pipeline.model.camera-optimizer.mode SO3xR3
+
+ns-process-data images \
+--data /media/cgvmis418/新增磁碟區/2025-04-23_08-55-45/RUN_HiFi4G_location_9_30_T_PCD/image_undistortion_white/15 \
+--output-dir /media/cgvmis418/新增磁碟區/2025-04-23_08-55-45/RUN_HiFi4G_location_9_30_T_PCD/nerfstudio_data/15 \
+--colmap-model-path /media/cgvmis418/新增磁碟區/2025-04-23_08-55-45/RUN_HiFi4G_location_9_30_T_PCD/colmap/sparse/15 \
+--verbose --skip-colmap
+
+colmap model_converter     --input_path /media/cgvmis418/新增磁碟區/2025-04-23_08-55-45/RUN_HiFi4G_location_9_30_T_PCD/colmap/sparse/15    \
+--output_path /media/cgvmis418/新增磁碟區/2025-04-23_08-55-45/RUN_HiFi4G_location_9_30_T_PCD/colmap/sparse/15     --output_type BIN
+
+ns-viewer --load-config /home/cgvmis418/nerfstudio/outputs/0/splatfacto/2025-05-30_113338/config.yml
+
+ns-train splatfacto-big \
+--data /media/cgvmis418/新增磁碟區/2025-04-23_08-55-45/RUN_HiFi4G_location_9_30_T_PCD/nerfstudio_data/0 \
+--pipeline.model.sh-degree 0 \
+--pipeline.model.camera-optimizer.mode SO3xR3 \
+--vis viewer+tensorboard
+//2025-05-28_103040
+
+ns-train splatfacto-big \
+--data /media/cgvmis418/新增磁碟區/2025-04-23_08-55-45/RUN_HiFi4G_location_9_30_T_PCD/nerfstudio_data/0 \
+--pipeline.model.sh-degree 0 \
+--pipeline.model.camera-optimizer.mode SO3xR3 \
+--pipeline.model.background-color black
+--vis viewer+tensorboard
+//2025-05-28_110247
+
+ns-train splatfacto-big \
+--data /media/cgvmis418/新增磁碟區/2025-04-23_08-55-45/RUN_HiFi4G_location_9_30_T_PCD/nerfstudio_data/0 \
+--pipeline.model.sh-degree 0 \
+--vis viewer+tensorboard
+//2025-05-28_111224
+
+ns-train splatfacto \
+--data /media/cgvmis418/新增磁碟區/2025-04-23_08-55-45/RUN_HiFi4G_location_9_30_T_PCD/nerfstudio_data/0 \
+--pipeline.model.sh-degree 0 \
+--vis viewer+tensorboard
+//2025-05-30_110641
+
+ns-train splatfacto \
+--data /media/cgvmis418/新增磁碟區/2025-04-23_08-55-45/RUN_HiFi4G_location_9_30_T_PCD/nerfstudio_data/0 \
+--pipeline.model.sh-degree 0 \
+--pipeline.model.camera-optimizer.mode SO3xR3 \
+--vis viewer+tensorboard
+//2025-05-30_110256
+
+ns-train splatfacto \
+--data /media/cgvmis418/新增磁碟區/2025-04-23_08-55-45/RUN_HiFi4G_location_9_30_T_PCD_DST/nerfstudio_data/0 \
+--pipeline.model.sh-degree 0 \
+--vis viewer+tensorboard
+//2025-05-30_110002
+
+ns-train splatfacto \
+--data /media/cgvmis418/新增磁碟區/2025-04-23_08-55-45/RUN_HiFi4G_location_9_30_T_PCD_DST/nerfstudio_data/0 \
+--pipeline.model.sh-degree 0 \
+--pipeline.model.camera-optimizer.mode SO3xR3 \
+--vis viewer+tensorboard
+//2025-05-30_105356
+
+ns-train splatfacto \
+--data /media/cgvmis418/新增磁碟區/2025-04-23_08-55-45/RUN_HiFi4G_location_9_30_T_PCD_S3/nerfstudio_data/0 \
+--pipeline.model.sh-degree 0 \
+--vis viewer+tensorboard
+//2025-05-30_113338
+
+ns-train splatfacto \
+--data /media/cgvmis418/新增磁碟區/2025-04-23_08-55-45/RUN_HiFi4G_location_9_30_T_PCD_S3/nerfstudio_data/0 \
+--pipeline.model.sh-degree 0 \
+--pipeline.model.camera-optimizer.mode SO3xR3 \
+--vis viewer+tensorboard
+//2025-05-30_113723
+
+ns-train splatfacto \
+--data /media/cgvmis418/新增磁碟區/2025-04-23_08-55-45/RUN_HiFi4G_location_9_30_T_PCD/nerfstudio_data/0 \
+--pipeline.model.sh-degree 0 \
+--pipeline.model.camera-optimizer.mode SO3xR3 \
+--vis viewer+tensorboard \
+nerfstudio-data \
+--eval-mode all \
+--downscale-factor 1
+//2025-05-30_183304
+
+ns-train splatfacto \
+--data /media/cgvmis418/新增磁碟區/2025-04-23_08-55-45/RUN_HiFi4G_location_9_30_T_PCD/nerfstudio_data/0 \
+--pipeline.model.sh-degree 0 \
+--vis viewer+tensorboard \
+nerfstudio-data \
+--eval-mode all 
+//2025-05-30_205221 替換外參
+
+ns-train splatfacto \
+--data /media/cgvmis418/新增磁碟區/2025-04-23_08-55-45/RUN_HiFi4G_location_9_30_T_PCD/nerfstudio_data/15 \
+--pipeline.model.sh-degree 0 \
+--vis viewer+tensorboard \
+nerfstudio-data \
+--eval-mode all 
+//2025-05-30_210713 跨frame替換外參
+
+//2025-05-30_113338:0 frame S3 Original
+//2025-05-30_113723:0 frame S3 SO3xR3
+//2025-05-30_110002:0 frame S3 DST
+//2025-05-30_105356:0 frame S3 SO3xR3+DST 
+
+ns-render dataset --load-config /home/cgvmis418/nerfstudio/outputs/0/splatfacto/2025-05-30_105356/config.yml \
+--image-format png --downscale-factor 1
+
+ns-eval --load-config /home/cgvmis418/nerfstudio/outputs/0/splatfacto/2025-05-30_105356/config.yml \
+--output-path /home/cgvmis418/nerfstudio/outputs/0/splatfacto/2025-05-30_105356/eval_results.json
+
+tensorboard --logdir /home/cgvmis418/nerfstudio/outputs/0/splatfacto/2025-05-28_111224
+
+tensorboard --logdir /home/cgvmis418/nerfstudio/outputs/0/splatfacto
+
+ns-export cameras --load-config /home/cgvmis418/nerfstudio/outputs/0/splatfacto/2025-05-30_183304/config.yml \
+--output-dir /home/cgvmis418/nerfstudio/outputs/0/splatfacto/2025-05-30_183304
