@@ -5,14 +5,24 @@ pip install -e .
 ns-train splatfacto --help
 ns-train splatfacto --data /media/cgvmis418/新增磁碟區/2025-04-23_08-55-45/RUN_HiFi4G_location_9_30_T_PCD/nerfstudio_data/0 --pipeline.model.sh-degree 0 --pipeline.model.camera-optimizer.mode SO3xR3
 
+colmap model_converter     --input_path /media/cgvmis418/新增磁碟區/2025-05-25_17-44-00/GRADF_HiFi4G_location_9_T_PCD/colmap/sparse/0    \
+--output_path /media/cgvmis418/新增磁碟區/2025-05-25_17-44-00/GRADF_HiFi4G_location_9_T_PCD/colmap/sparse/0     --output_type BIN
+
 ns-process-data images \
---data /media/cgvmis418/新增磁碟區/2025-04-23_08-55-45/RUN_HiFi4G_location_9_30_T_PCD/image_undistortion_white/15 \
---output-dir /media/cgvmis418/新增磁碟區/2025-04-23_08-55-45/RUN_HiFi4G_location_9_30_T_PCD/nerfstudio_data/15 \
---colmap-model-path /media/cgvmis418/新增磁碟區/2025-04-23_08-55-45/RUN_HiFi4G_location_9_30_T_PCD/colmap/sparse/15 \
+--data /media/cgvmis418/新增磁碟區/2025-05-25_17-44-00/GRADF_HiFi4G_location_9_T_PCD/image_undistortion_white/0 \
+--output-dir /media/cgvmis418/新增磁碟區/2025-05-25_17-44-00/GRADF_HiFi4G_location_9_T_PCD/nerfstudio_data/0 \
+--colmap-model-path /media/cgvmis418/新增磁碟區/2025-05-25_17-44-00/GRADF_HiFi4G_location_9_T_PCD/colmap/sparse/0 \
 --verbose --skip-colmap
 
-colmap model_converter     --input_path /media/cgvmis418/新增磁碟區/2025-04-23_08-55-45/RUN_HiFi4G_location_9_30_T_PCD/colmap/sparse/15    \
---output_path /media/cgvmis418/新增磁碟區/2025-04-23_08-55-45/RUN_HiFi4G_location_9_30_T_PCD/colmap/sparse/15     --output_type BIN
+ns-train splatfacto \
+--data /media/cgvmis418/新增磁碟區/2025-05-25_17-44-00/GRADF_HiFi4G_location_9_T_PCD/nerfstudio_data/0 \
+--pipeline.model.sh-degree 0 \
+--pipeline.model.camera-optimizer.mode SO3xR3 \
+--vis viewer+tensorboard \
+nerfstudio-data \
+--eval-mode all \
+--downscale-factor 1
+
 
 ns-viewer --load-config /home/cgvmis418/nerfstudio/outputs/0/splatfacto/2025-05-30_113338/config.yml
 
