@@ -5,23 +5,29 @@ pip install -e .
 ns-train splatfacto --help
 ns-train splatfacto --data /media/cgvmis418/新增磁碟區/2025-04-23_08-55-45/RUN_HiFi4G_location_9_30_T_PCD/nerfstudio_data/0 --pipeline.model.sh-degree 0 --pipeline.model.camera-optimizer.mode SO3xR3
 
-colmap model_converter     --input_path /media/cgvmis418/新增磁碟區/2025-05-25_17-44-00/GRADF_HiFi4G_location_9_T_PCD/colmap/sparse/0    \
---output_path /media/cgvmis418/新增磁碟區/2025-05-25_17-44-00/GRADF_HiFi4G_location_9_T_PCD/colmap/sparse/0     --output_type BIN
+INPUT_BASE_NAME="/media/cgvmis418/新增磁碟區/2025-04-23_08-55-45/Ubnutu_RUN_HiFi4G_location_9_T_5PCD_30"
+
+colmap model_converter     --input_path "${INPUT_BASE_NAME}/colmap/sparse/0"   \
+--output_path "${INPUT_BASE_NAME}/colmap/sparse/0"     --output_type BIN
 
 ns-process-data images \
---data /media/cgvmis418/新增磁碟區/2025-05-25_17-44-00/GRADF_HiFi4G_location_9_T_PCD/image_undistortion_white/0 \
---output-dir /media/cgvmis418/新增磁碟區/2025-05-25_17-44-00/GRADF_HiFi4G_location_9_T_PCD/nerfstudio_data/0 \
---colmap-model-path /media/cgvmis418/新增磁碟區/2025-05-25_17-44-00/GRADF_HiFi4G_location_9_T_PCD/colmap/sparse/0 \
+--data "${INPUT_BASE_NAME}/image_undistortion_white/0/TRAIN" \
+--eval-data "${INPUT_BASE_NAME}/image_undistortion_white/0/TEST" \
+--output-dir "${INPUT_BASE_NAME}/nerfstudio_data/0" \
+--colmap-model-path "${INPUT_BASE_NAME}/colmap/sparse/0" \
 --verbose --skip-colmap
 
 ns-train splatfacto \
---data /media/cgvmis418/新增磁碟區/2025-05-25_17-44-00/GRADF_HiFi4G_location_9_T_PCD/nerfstudio_data/0 \
+--data "${INPUT_BASE_NAME}/nerfstudio_data/0" \
 --pipeline.model.sh-degree 0 \
 --pipeline.model.camera-optimizer.mode SO3xR3 \
+--pipeline.model.num-downscales 1 \
 --vis viewer+tensorboard \
 nerfstudio-data \
---eval-mode all \
---downscale-factor 1
+--downscale-factor 2
+
+ns-export cameras --load-config /home/cgvmis418/nerfstudio/outputs/0/splatfacto/2025-07-08_134634/config.yml \
+--output-dir /home/cgvmis418/nerfstudio/outputs/0/splatfacto/2025-07-08_134634
 
 
 ns-viewer --load-config /home/cgvmis418/nerfstudio/outputs/0/splatfacto/2025-05-30_113338/config.yml

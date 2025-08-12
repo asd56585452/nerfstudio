@@ -86,9 +86,9 @@ def restore_extrinsics(dataparser_transforms_path, transforms_train_path, output
 
 if __name__ == "__main__":
     # 請將以下路徑替換為您檔案的實際路徑
-    dataparser_transforms_file = "/home/cgvmis418/nerfstudio/outputs/0/splatfacto/2025-05-30_183304/dataparser_transforms.json"
-    transforms_train_file = "/home/cgvmis418/nerfstudio/outputs/0/splatfacto/2025-05-30_183304/transforms_train.json"
-    output_file = "/home/cgvmis418/nerfstudio/outputs/0/splatfacto/2025-05-30_183304/transforms_original_restored.json"
+    dataparser_transforms_file = "/home/cgvmis418/nerfstudio/outputs/0/splatfacto/20PCDALL:2025-07-08_134634/dataparser_transforms.json"
+    transforms_train_file = "/home/cgvmis418/nerfstudio/outputs/0/splatfacto/20PCDALL:2025-07-08_134634/transforms_train.json"
+    output_file = "/home/cgvmis418/nerfstudio/outputs/0/splatfacto/20PCDALL:2025-07-08_134634/transforms_original_restored.json"
 
     # 執行還原操作
     # 確保您的 JSON 檔案與此腳本在同一目錄下，或者提供完整路徑

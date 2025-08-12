@@ -56,10 +56,10 @@ def copy_file_to_immediate_subdirectories(source_file_path, target_parent_direct
 if __name__ == "__main__":
     # --- 請修改以下路徑 ---
     # 1. 指定來源 transforms.json 檔案的路徑
-    source_transforms_file = "/home/cgvmis418/VideoGS/datasets/RUN_HiFi4G_location_9_30_T_PCD_DST_FT_process/transforms.json"  # 假設 transforms.json 在腳本執行的同一個目錄下
+    source_transforms_file = "/home/cgvmis418/VideoGS/datasets/Ubnutu_RUN_HiFi4G_location_9_T_5PCD_30_process/transforms.json"  # 假設 transforms.json 在腳本執行的同一個目錄下
 
     # 2. 指定目標父資料夾的路徑
-    target_directory = "/home/cgvmis418/VideoGS/datasets/RUN_HiFi4G_location_9_30_T_PCD_DST_FT_process"  # 假設目標資料夾結構在腳本執行的同一個目錄下
+    target_directory = "/home/cgvmis418/VideoGS/datasets/Ubnutu_RUN_HiFi4G_location_9_T_5PCD_30_process"  # 假設目標資料夾結構在腳本執行的同一個目錄下
     # --- 路徑修改結束 ---
 
     print(f"準備從 '{source_transforms_file}' 複製檔案。")

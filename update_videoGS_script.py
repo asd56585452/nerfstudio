@@ -99,15 +99,15 @@ if __name__ == "__main__":
     # --- 請修改以下路徑為您的實際檔案路徑 ---
     # 包含來源姿態和 'colmap_im_id' 的 JSON 檔案
     # 例如: "/path/to/your/source_transforms_with_colmap_id.json"
-    source_transforms_file = "/media/cgvmis418/新增磁碟區/2025-04-23_08-55-45/RUN_HiFi4G_location_9_30_T_PCD/nerfstudio_data/0/transforms.json" 
+    source_transforms_file = "/media/cgvmis418/新增磁碟區/2025-04-23_08-55-45/Ubnutu_RUN_HiFi4G_location_9_T_20PCD_30/nerfstudio_data_ALL/0/transforms.json" 
                                                         
     # 您想要更新的 videoGS_transforms.json 檔案
     # 例如: "/path/to/your/input_videoGS_transforms.json"
-    target_videoGS_file = "/home/cgvmis418/VideoGS/datasets/RUN_HiFi4G_location_9_30_T_PCD_DST_FT_process/transforms.json" 
+    target_videoGS_file = "/home/cgvmis418/VideoGS/datasets/Ubnutu_RUN_HiFi4G_location_9_T_5PCD_30_process/transforms.json" 
                                                 
     # 更新後輸出的檔案名稱
     # 例如: "/path/to/your/output_videoGS_transforms_updated.json"
-    output_file = "/home/cgvmis418/VideoGS/datasets/RUN_HiFi4G_location_9_30_T_PCD_DST_FT_process/transforms.json"
+    output_file = "/home/cgvmis418/VideoGS/datasets/Ubnutu_RUN_HiFi4G_location_9_T_5PCD_30_process/transforms.json"
     # --- 路徑修改結束 ---
 
     print(f"讀取來源姿態檔案 (含 colmap_im_id): {source_transforms_file}")

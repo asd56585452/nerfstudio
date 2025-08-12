@@ -113,15 +113,15 @@ if __name__ == "__main__":
     # --- 請修改以下路徑為您的實際檔案路徑 ---
     # 包含已還原姿態的 JSON 檔案 (來自上一個腳本的輸出)
     # 例如: "/path/to/your/transforms_original_restored.json"
-    original_restored_file = "/home/cgvmis418/nerfstudio/outputs/0/splatfacto/2025-05-30_183304/transforms_original_restored.json" 
+    original_restored_file = "/home/cgvmis418/nerfstudio/outputs/0/splatfacto/20PCDALL:2025-07-08_134634/transforms_original_restored.json" 
                                                         
     # 您想要更新的 transforms.json 檔案
     # 例如: "/path/to/your/input_transforms.json"
-    target_transforms_file = "/media/cgvmis418/新增磁碟區/2025-04-23_08-55-45/RUN_HiFi4G_location_9_30_T_PCD/nerfstudio_data/15/transforms.json" 
+    target_transforms_file = "/media/cgvmis418/新增磁碟區/2025-04-23_08-55-45/Ubnutu_RUN_HiFi4G_location_9_T_20PCD_30/nerfstudio_data_ALL/0/transforms.json" 
                                                 
     # 更新後輸出的檔案名稱
     # 例如: "/path/to/your/output_transforms_updated.json"
-    output_file = "/media/cgvmis418/新增磁碟區/2025-04-23_08-55-45/RUN_HiFi4G_location_9_30_T_PCD/nerfstudio_data/15/transforms.json"
+    output_file = "/media/cgvmis418/新增磁碟區/2025-04-23_08-55-45/Ubnutu_RUN_HiFi4G_location_9_T_20PCD_30/nerfstudio_data_ALL/0/transforms.json"
     # --- 路徑修改結束 ---
 
     print(f"讀取已還原姿態來源檔案: {original_restored_file}")
